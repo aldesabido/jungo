@@ -1,0 +1,15 @@
+<nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-success " href="#"><i class="fa fa-bars"></i> </a>
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+        <li>
+            <a href="" class="dropdown-toggle " data-toggle="dropdown">{{request.user.fullname}} <b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown row">
+                <li><a href="#" ng-click="edit_acc_dialog()">Edit Profile</a></li>
+                <li class="divider"></li>
+                <li><a href="/logout/">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

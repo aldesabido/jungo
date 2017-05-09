@@ -1,0 +1,41 @@
+<div ng-class="main.page_loader.dialog ? 'panel panel-success clean sk-loading' : 'panel panel-success clean'">
+    {% include "common/loader.html" %}
+    <div class="panel-heading">
+        <h3 class="panel-title">Notes #{$ main.selected_record.order_number $}</h3>
+        <a class="btn btn-lg pull-right margin_top_reverse_30 white" ng-click="main.close_dialog(false,true)"><i class="fa fa-times fa-lg"></i></a>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <form class="form" name="form">
+                <div class="col-sm-12">
+                    <table class="table" resizeable mode="main.resizeMode" id="table">
+                        <thead>
+                            <tr>
+                                <th>Note</th>
+                                <th>Date</th>
+                                <th>User</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <td colspan="3"><input type="text" ng-model="main.notes_record.note" class="form-control" name="note"></td>
+                              <td><button class="btn btn-sm btn-success btn-w-m" ng-click="main.create_note(main.notes_record.note)" ng-disabled="!main.notes_record.note">Send</button></td>
+                            </tr>
+                            <tr ng-repeat="note in main.notes">
+                                <td>{$ note.note $}</td>
+                                <td>{$ note.date | date:"MM/dd/yyyy" $}</td>
+                                <td>{$ note.user $}</td>
+                                <td><button class="btn btn-sm btn-danger btn-w-m" ng-click="main.delete_note(note)" ng-if="note.editable">Remove</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-sm btn-danger btn-w-m" ng-click="main.close_dialog(false,true)">Close</button>
+    </div>
+</div>
+

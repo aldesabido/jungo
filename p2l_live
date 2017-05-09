@@ -1,0 +1,15 @@
+#!/bin/bash -vx
+WORKON="source env/bpo/bin/activate;"
+NAVAGATION="cd projects/bpo;"
+SCRIPT="git pull;"
+
+if [ "$1" != "no-migrate" ]; then
+	SCRIPT="$SCRIPT python manage.py migrate;"
+fi
+
+SCRIPT="$SCRIPT sudo reload bpo; sudo service nginx reload;"
+
+ssh "gcp2" "${WORKON} ${NAVAGATION}
+    eval \$(ssh-agent)
+    ssh-add ~/.ssh/bitbucket
+    ${SCRIPT}"

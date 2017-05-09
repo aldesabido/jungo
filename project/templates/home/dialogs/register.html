@@ -1,0 +1,62 @@
+<div class="panel panel-primary" style="border:0">
+    <div class="panel-heading">
+        <h3 class="panel-title">Registration</h3>
+        <!-- <div class="col-sm-8 col-sm-offset-4 margin_top_reverse_20">
+            <div class="pull-right">
+                <button class="btn btn-sm btn-warning" ng-click="main.create();">Save</button>                
+                <button class="btn btn-sm btn-danger" ng-click="main.close_dialog()">Close</button>                
+            </div>
+        </div> -->
+    </div>
+    <div class="panel-body">
+        <div class="ibox-content" ng-class="main.page_loader.dialog ? 'sk-loading' : ''" ng-style="modal_style">
+            {% include "common/loader.html" %}
+            <div class="row">
+            <form class="form" name="form">
+                
+
+                <div class="col-sm-12" ng-class="{ 'has-error' : form.fullname.$invalid && !form.fullname.$pristine }">
+                    <label class="required">Fullname</label>
+                    <input ng-model="main.registration_data.fullname" name="fullname" type="text" class="form-control input-sm" required value="Alde">
+                    <small ng-if="form.fullname.$invalid && !form.fullname.$pristine">This field is required.</small>
+                </div>
+
+                <div class="col-sm-12" ng-class="{ 'has-error' : form.address.$invalid && !form.address.$pristine }">
+                    <label class="required">Complete Address</label>
+                    <input ng-model="main.registration_data.address" name="address" type="text" class="form-control input-sm" required value="Alde">
+                    <small ng-if="form.address.$invalid && !form.address.$pristine">This field is required.</small>
+                </div>
+
+                <div class="col-sm-12 form-group" ng-class="{ 'has-error' : form.company_name.$invalid && !form.company_name.$pristine }">
+                    <label class="required">Company Name</label>
+                    <input ng-model="main.registration_data.company_name" name="company_name" type="text" class="form-control input-sm" required value="Alde">
+                    <small ng-if="form.company_name.$invalid && !form.company_name.$pristine">This field is required.</small>
+                </div>
+
+                <div class="col-sm-12" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
+                    <label class="required">Email</label>
+                    <input ng-model="main.registration_data.email" name="email" type="email" class="form-control input-sm" required>
+                    <small ng-if="form.email.$invalid && !form.email.$pristine">Enter a valid email.</small>
+                </div>
+                <div class="col-sm-12" ng-class="{ 'has-error' : form.password.$invalid && !form.password.$pristine }">
+                    <label class="required">Password</label>
+                    <input ng-model="main.registration_data.password" name="password" type="password" class="form-control input-sm" required min="6">
+                    <small ng-if="form.password.$invalid && !form.password.$pristine">This field is required.</small>
+                </div>
+                <div class="col-sm-12" ng-class="{ 'has-error' : form.repassword.$invalid && !form.repassword.$pristine }">
+                    <label class="required">Confirm Password</label>
+                    <input ng-model="main.registration_data.repassword" name="repassword" type="password" class="form-control input-sm" required on-enter="(form.$valid) ? main.register() : ''">
+                    <small ng-if="(main.registration_data.password != main.registration_data.repassword) && !form.repassword.$pristine">Password not match.</small>
+                </div>
+            </form>
+            </div>
+            <div class="clearfix"><br></div>
+            <div class="row">
+	            <div class="col-sm-12">
+		    	    <button class="btn btn-sm btn-primary" ng-disabled="form.$invalid" ng-click="main.register();">Save</button>                
+		    	    <button class="btn btn-sm btn-danger" ng-click="main.close_dialog()">Close</button>                
+	            </div>
+            </div>
+        </div>
+    </div>
+</div>

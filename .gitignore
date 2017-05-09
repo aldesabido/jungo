@@ -1,0 +1,4 @@
+*.pyc
+root/local_settings.py
+project/static/uploads/
+.gitignore.save

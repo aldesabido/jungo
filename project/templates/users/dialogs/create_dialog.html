@@ -1,0 +1,58 @@
+<div class="panel panel-success clean noheight">
+    <div class="panel-heading">
+        <h3 class="panel-title">{$ main.current_tab $} - {$ main.record.fullname $}</h3>
+        <a class="btn btn-sm white pull-right margin_top_reverse_20" ng-click="main.close_dialog()"><i class="fa fa-times"></i></a>            
+    </div>
+    <div class="panel-body">
+        <div class="ibox-content dialog" ng-class="main.page_loader.dialog ? 'sk-loading' : ''" ng-style="modal_style">
+            {% include "common/loader.html" %}
+            <form name="form" class="form">
+                <div class="row" ng-class="{ 'has-error' : form.fullname.$invalid && !form.fullname.$pristine }">
+                    <label class="required">Fullname</label>
+                    <input required ng-model="main.record.fullname" name="fullname" class="form-control" placeholder="Fullname"></input>
+                </div>
+
+                <div class="row">
+                    <label>Address</label>
+                    <input ng-model="main.record.address" name="address" class="form-control" placeholder="Address"></input>
+                </div>
+
+                <div class="row">
+                    <label>Company</label>
+                    <input ng-model="main.record.company" name="company" class="form-control" placeholder="Contact No."></input>
+                </div>
+
+                <div class="row">
+                    <label>Contact No.</label>
+                    <input ng-model="main.record.contact_no" name="contact_no" class="form-control" placeholder="Company"></input>
+                </div>
+
+                <div class="row" ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
+                    <label class="required">Email</label>
+                    <input required type="email" ng-model="main.record.email" name="email" class="form-control" placeholder="Email"></input>
+                    <small ng-if="form.email.$invalid && !form.email.$pristine">Enter a valid email.</small>
+                </div>
+
+
+                <span ng-if="!main.record.id">
+                    <div class="row" ng-class="{ 'has-error' : form.password.$invalid && !form.password.$pristine }">
+                        <label class="required">Password</label>
+                        <input required type="password" ng-model="main.record.password" name="password" class="form-control" placeholder="Password"></input>
+                        <small ng-if="form.password.$invalid && !form.password.$pristine">This field is required.</small>
+                    </div>
+
+                    <div class="row" ng-class="{ 'has-error' : form.repassword.$invalid && !form.repassword.$pristine }">
+                        <label class="required">Confirm Password</label>
+                        <input required type="password" ng-model="main.record.repassword" name="repassword" class="form-control" placeholder="Confirm Password"></input>
+                        <small ng-if="(main.record.password != main.record.repassword) && !form.repassword.$pristine">Password not match.</small>
+                    </div>
+                </span>
+            </form>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="">
+            <button class="btn btn-sm btn-success" ng-disabled="form.$invalid" ng-click="main.create()">Save</button>
+        </div>
+    </div>
+</div>

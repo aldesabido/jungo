@@ -1,0 +1,139 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <p class="no_margin">
+        <button type="button" class="{$ main.btnclass['active'] $} no_radius" ng-click="main.change_tab('active')">Active</button>
+        <button type="button" class="{$ main.btnclass['hold'] $} no_radius" ng-click="main.change_tab('hold')">Hold</button>
+        <button type="button" class="{$ main.btnclass['completed'] $} no_radius" ng-click="main.change_tab('completed')">Completed <span class="label label-info pull-right">{$ main.success_count $}</span></button>
+        <button type="button" class="{$ main.btnclass['qc'] $} no_radius" ng-click="main.change_tab('qc')">Quality Control</button>
+        <button type="button" class="{$ main.btnclass['submitted'] $} no_radius" ng-click="main.change_tab('submitted')">Submitted</button>
+        <button type="button" class="{$ main.btnclass['cancelled'] $} no_radius" ng-click="main.change_tab('cancelled')">Cancelled</button>
+    </p>
+</div>
+<div class="clearfix"></div>
+<div class="row wrapper wrapper-content animated fadeIn" ng-cloak="" ng-init="main.read_clients('{{request.user.user_type.code}}')">
+    <div class="ibox">
+        <div class="ibox-content" ng-class="main.page_loader.main ? 'sk-loading' : ''">
+            {% include "common/loader.html" %}
+            <!-- Content Here -->
+            <div class="row">
+                <div class="row">
+                    {% if request.user.user_type.code != 'cda' %}
+                    <div class="col-sm-2">
+                        <button class="btn btn-xs btn-warning btn-w-m" ng-click="main.create_dialog()">New order</button>
+                    </div>
+                    {% endif %}
+                    <div class="col-sm-4 pull-right">
+                        <div class="input-group">
+                            <input type="text" ng-model="main.filters.name" class="form-control" on-enter="main.main_loader();" placeholder="Search by order #/Address">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-click="main.main_loader();"><i class="fa fa-search"></i></button>
+                                <button class="btn btn-default" type="button" ng-click="main.main_loader(true);"><i class="fa fa-refresh"></i></button>
+                                <!-- <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" ng-click="main.common_filter_dialog()">Advance Filter</a></li>
+                                        <li><a href="#" ng-click="main.export('/export/common_tables/'+main.current_module,main.filters,main.columns)">Export</a></li>
+                                    </ul> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pull-right" ng-if="main.selected_record">
+                        <div class="input-group">
+                            <ui-select ng-model="main.selected_status" theme="bootstrap">
+                                <ui-select-match>{$ $select.selected.display $}</ui-select-match>
+                                <ui-select-choices repeat="status in main.status[main.current_tab]">
+                                    <div ng-if="!(main.user_type == 'cda' && status.value == 'cancelled')" ng-bind-html="status.display | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-disabled="!main.selected_status" ng-click="main.change_status();">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table" resizeable mode="main.resizeMode" id="table" ng-class="(loading == true) ? 'table_loading' : '' ">
+                    <thead>
+                        <tr class="hdr_border_r">
+                            <th custom-sort order="order_number">Order#</th>
+                            <th custom-sort order="address">Address/Order type</th>
+                            <th custom-sort order="client" ng-if="main.user_type != 'client'">Client</th>
+                            <th custom-sort order="credential__company__name">Company</th>
+                            <th custom-sort order="date">Date</th>
+                            <!-- If client. just show the due date -->
+                            <th custom-sort order="time_remaining">Time Remaining</th>
+                            <!-- If client. just show the due date -->
+                            <!-- <th>Assigned/Due date</th> -->
+                            <!-- If admin. show the assignee and due date -->
+                            <th>QC</th>
+                            <th>Notes</th>
+                            <th>Docs</th>
+                            <th>Photos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="record in main.records" ng-class="(main.selected_record.id == record.id) ? 'highlight hand_cursor' : 'tr_gray hand_cursor'" ng-click="main.selected_record = record;">
+                            <td>
+                                {% if request.user.user_type.code == 'cda' %}
+                                <span><b>{$ record.order_number $}</b></span>
+                                <br> {% else %}
+                                <span><b><a href="#" ng-click="main.order_details_dialog(record)">{$ record.order_number $}</a></b></span>
+                                <br> {% endif %}
+                                <span><a href="" class="btn btn-xs btn-primary" ng-click="main.credential_dialog()">Credentials</a></span>
+                            </td>
+                            <td>
+                                {% if request.user.user_type.code == 'cda' %}
+                                <span>{$ record.address $}</span>
+                                <br> {% else %}
+                                <span><a href="#" ng-click="main.load_to_edit(record)">{$ record.address $}</a></span>
+                                <br> {% endif %}
+                                <span class="badge">{$ record.order_type $}</span>
+                                <span class="badge" ng-if="record.is_rush">Rush</span>
+                                <span class="badge" ng-if="record.is_rental">Rental</span>
+                            </td>
+                            <td ng-if="main.user_type != 'client'">
+                                <span>{$ record.client $}</span>
+                                <br>
+                                <span>
+                                    {% if request.user.user_type.code == 'cda' %}
+                                        {$ (record.assigned) ? record.assignee.fullname : 'Unassigned' $}
+                                    {% else %}
+                                        <a href="#" ng-click="main.order_assignment_dialog(record)">{$ (record.assigned) ? record.assignee.fullname : 'Unassigned' $}</a>
+                                    {% endif %}
+                                </span>
+                            </td>
+                            <td>
+                                <span>{$ record.company $}</span>
+                            </td>
+                            <td>
+                                <span>{$ record.date |  date $}</span>
+                            </td>
+                            <td>
+                                <span>{$ record.time_remaining | number:"0" $} hrs.</span>
+                            </td>
+                            <td>
+                                <span><i class="fa fa-history fa-lg"></i></span>
+                                <span ng-if="record.qc_count > 0">{$ record.qc_count $}</span>
+                            </td>
+                            <td class="hand_cursor" ng-click="main.notes_dialog(record)">
+                                <span><i class="fa fa-pencil-square fa-lg"></i></span>
+                                <span ng-if="record.notes_count > 0">{$ record.notes_count $}</span>
+                            </td>
+                            <td class="hand_cursor" ng-click="main.docs_dialog(record)">
+                                <span><i class="fa fa-paperclip fa-lg"></i></span>
+                                <span ng-if="record.docs_count > 0">{$ record.docs_count $}</span>
+                            </td>
+                            <td class="hand_cursor" ng-click="main.photos_dialog(record)">
+                                <span><i class="fa fa-file-photo-o fa-lg"></i></span>
+                                <span ng-if="record.photo_count > 0">{$ record.photo_count $}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination></pagination>
+            </div>
+            <!-- End of content -->
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

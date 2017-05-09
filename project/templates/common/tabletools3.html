@@ -1,0 +1,14 @@
+<div class="row">
+        <div class="input-group">
+            <input type="text" ng-model="main.filters.name" class="form-control" on-enter="main.main_loader();" placeholder="Search..." dedong="alde">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="main.main_loader(true);"><i class="fa fa-refresh"></i></button>
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+                <ul class="dropdown-menu pull-right">
+                    <li><a href="#" ng-click="main.common_filter_dialog()" ng-if="main.controls.advance_filters">Advance Filter</a></li>
+                    <li><a href="#" ng-click="main.columns_dialog(main)" ng-init="main.read_module_columns(main)" ng-if="main.controls.dynamic_columns">Columns</a></li>
+                    <li><a href="#" ng-click="main.export('/export/common_tables/'+main.current_module,main.filters,main.columns)">Export</a></li>
+                </ul>
+            </div>
+        </div>
+</div>

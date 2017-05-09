@@ -1,0 +1,74 @@
+<div class="panel panel-success clean">
+    <div class="panel-heading">
+        <h3 class="panel-title">#{$ main.record.order_number $}</h3>
+        <a class="btn btn-sm pull-right margin_top_reverse_20 white" ng-click="main.close_dialog()"><i class="fa fa-times"></i></a>            
+    </div>
+    <div class="panel-body">
+        <div class="ibox-content dialog" ng-class="main.page_loader.dialog ? 'sk-loading' : ''" ng-style="modal_style">
+            {% include "common/loader.html" %}
+            <form name="form" class="form">
+
+                <div class="row" ng-class="{ 'has-error' : form.client.$invalid && !form.client.$pristine }" ng-if="main.user_type == 'admin'">
+                    <label class="required">Client</label>
+                    <ui-select ng-model="main.record.client" required name="client" ng-change="main.read_credentials()">
+                        <ui-select-match>{$$select.selected.fullname$}</ui-select-match>
+                        <ui-select-choices repeat="option in main.clients | filter: $select.search">
+                            <div ng-bind-html="option.fullname | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+
+                <div class="row" ng-class="{ 'has-error' : form.order_number.$invalid && !form.order_number.$pristine }" ng-if="main.user_type == 'client'">
+                    <label class="required">Order #</label>
+                    <input required ng-model="main.record.order_number" name="order_number" class="form-control" placeholder="Order #" ng-init="(!main.record.order_number) ? main.record.order_number = '{{order_number}}' : ''" ng-disabled="true"></input>
+                </div>
+
+                <div class="row" ng-class="{ 'has-error' : form.address.$invalid && !form.address.$pristine }">
+                    <label class="required">Address</label>
+                    <textarea rows="2" ng-model="main.record.address" name="address" class="form-control" placeholder="House #, Street name, City, State, Zip"></textarea>
+                </div>
+
+                <div class="row" ng-class="{ 'has-error' : form.company.$invalid && !form.company.$pristine }">
+                    <label class="required">Company</label>
+                    <ui-select ng-model="main.record.credential" required name="credential">
+                        <ui-select-match>{$$select.selected.company.name$} ({$$select.selected.username$})</ui-select-match>
+                        <ui-select-choices repeat="option in main.credentials | filter: $select.search">
+                            <div ng-bind-html="option.company.name + ' (' + option.username + ')' | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+
+                <div class="row" ng-class="{ 'has-error' : form.order_type.$invalid && !form.order_type.$pristine }">
+                    <label class="required">Order type</label>
+                    <ui-select ng-model="main.record.order_type" required name="order_type">
+                        <ui-select-match>{$$select.selected.name$}</ui-select-match>
+                        <ui-select-choices repeat="option in main.order_types | filter: $select.search">
+                            <div ng-bind-html="option.name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="row">
+                <hr class="bold">
+                </div>
+
+                <div class="row">
+                    <label>
+                        <input icheck type="checkbox" ng-model="main.record.is_rush">
+                        Rush
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        <input icheck type="checkbox" ng-model="main.record.is_rental">
+                        Rental
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="">
+            <button class="btn btn-sm btn-success" ng-disabled="form.$invalid" ng-click="main.create()">Save</button>
+        </div>
+    </div>
+</div>

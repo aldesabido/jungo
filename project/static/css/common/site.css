@@ -1,0 +1,742 @@
+.hand_cursor{cursor: pointer;}
+.tr_gray:hover{background-color: #E8E8E8  !important;}
+.hand_cursor.gray:hover{background-color: #E8E8E8  ;}
+a.normal{
+  color:black;
+}
+
+.doubleUnderline {
+    text-decoration:underline;
+    border-bottom: 1px solid #000;
+}
+
+.full_underline {
+    border-bottom: 1px solid #000;
+}
+
+.doubleUnderline {
+    text-decoration:underline;
+    border-bottom: 1px solid #000;
+}
+
+.bordertop {
+    border-top: 2px solid #000;
+}
+
+.borderbottom {
+    border-top: 1px solid #000;
+}
+
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+page[size="A4"][layout="portrait"] {
+  width: 29.7cm;
+  height: 21cm;  
+}
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+page[size="A3"][layout="portrait"] {
+  width: 42cm;
+  height: 29.7cm;  
+}
+page[size="A5"] {
+  width: 14.8cm;
+  height: 21cm;
+}
+page[size="A5"][layout="portrait"] {
+  width: 21cm;
+  height: 14.8cm;  
+}
+
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+.ui-select-match-text{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 40px;
+}
+.ui-select-toggle > .btn.btn-link {
+  margin-right: 10px;
+  top: 6px;
+  position: absolute;
+  right: 10px;
+}
+
+.input-group .select2-container {
+  position: relative;
+  /*z-index: 2;*/
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  display: table;
+  table-layout: fixed;
+}
+
+.form-group .select2-container {
+  position: relative;
+  /*z-index: 2;*/
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  display: table;
+  table-layout: fixed;
+}
+
+
+.findingTransactionCreate .ngdialog-content {
+     background: transparent;
+     margin: 0 auto;
+     position: relative;
+     width: 55%;
+     padding-top: 150px;
+}
+
+/*.subsidiary_dialog .ngdialog-content {
+      background: transparent;
+      margin: 0 auto;
+      position: relative;
+      width: 45%;
+      height: 100%;
+ }*/
+
+.small_dialog .ngdialog-content {
+     background: transparent;
+     margin: 0 auto;
+     position: relative;
+     width: 15%;
+     padding-top: 150px;
+}
+
+
+table .small{
+  font-size: 12px;
+}
+label.small{
+  font-size: 10px !important;
+  margin:0px !important;
+}
+
+b.small{
+  font-size: 12px !important;
+}
+
+.btn-slg{
+  width : 300px !important;
+  font-size:25px !important;
+}
+
+a.header{
+  color: #ffffff !important;
+}
+#container {
+
+	background-color: #F7F7F7;
+}
+#content {
+	
+	background-color: #8b9dc3;
+	padding: 2%;
+}
+#header {
+	background-color: #3b5998; height: 30%; padding: 1%;
+}
+#header img {
+	width: 3%;
+	display: inline-block;
+}
+#header h3 {
+	display: inline-block;
+}
+#navbar {
+	width: 40%;
+}
+#navlist a {
+	color: black;
+	font-size: 20px;
+}
+
+#profiletab {
+	height: 50%;
+}
+#messagetab {
+	height: 50%;
+}
+#details {
+	height: 100%;
+}
+
+#sidebar {
+
+	width: 100%;
+
+}
+
+/*#navlist li {
+	display: inline-block;
+}
+#navlist li a {
+
+	text-decoration:none; 
+	color: white; 
+	font-size:20px
+
+}*/
+#post {
+	background-color: #dfe3ee; 
+	width: 40%; 
+	border: 1px solid white;
+}
+#footer {
+	background-color: #dfe3ee; 
+	height: 1%; 
+	padding: 1%;
+}
+
+#newpost {
+
+	width: 40%;
+	margin-bottom: 1%;
+}
+#postbtn {
+	margin-top: 1%;
+}
+
+
+
+/*Products*/
+
+div.modal-content input{
+	margin-bottom: 20px;
+}
+
+
+
+/* Static */
+.half{
+	width : 50%;
+}
+
+.three_fourth{
+	width : 75%;
+}
+
+.one_fourth{
+	width : 25%;
+}
+
+.one_eight{
+  width : 15%;
+}
+
+/*Sidebar Menu*/
+.nav-side-menu {
+  overflow: auto;
+  font-family: verdana;
+  font-size: 12px;
+  font-weight: 200;
+  background-color: #2e353d;
+  position: fixed;
+  top: 0px;
+  width: 16%;
+  height: 100%;
+  color: #e1ffff;
+  margin-left: -30px;
+}
+.nav-side-menu .brand {
+  background-color: #23282e;
+  line-height: 50px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+.nav-side-menu .toggle-btn {
+  display: none;
+}
+.nav-side-menu ul,
+.nav-side-menu li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 35px;
+  cursor: pointer;
+  /*    
+    .collapsed{
+       .arrow:before{
+                 font-family: FontAwesome;
+                 content: "\f053";
+                 display: inline-block;
+                 padding-left:10px;
+                 padding-right: 10px;
+                 vertical-align: middle;
+                 float:right;
+            }
+     }
+*/
+}
+.nav-side-menu ul :not(collapsed) .arrow:before,
+.nav-side-menu li :not(collapsed) .arrow:before {
+  font-family: FontAwesome;
+  content: "\f078";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+  float: right;
+}
+.nav-side-menu ul .active,
+.nav-side-menu li .active {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+}
+.nav-side-menu ul .sub-menu li.active,
+.nav-side-menu li .sub-menu li.active {
+  color: #d19b3d;
+}
+.nav-side-menu ul .sub-menu li.active a,
+.nav-side-menu li .sub-menu li.active a {
+  color: #d19b3d;
+}
+
+a li[role="presentation"]{
+  color: #e1ffff;
+  margin-left : 10px;
+}
+
+.nav-side-menu ul .sub-menu li,
+.nav-side-menu li .sub-menu li {
+  background-color: #181c20;
+  border: none;
+  line-height: 28px;
+  border-bottom: 1px solid #23282e;
+  margin-left: 0px;
+}
+.nav-side-menu ul .sub-menu li:hover,
+.nav-side-menu li .sub-menu li:hover {
+  background-color: #020203;
+}
+.nav-side-menu ul .sub-menu li:before,
+.nav-side-menu li .sub-menu li:before {
+  font-family: FontAwesome;
+  content: "\f105";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.nav-side-menu li {
+  padding-left: 0px;
+  border-left: 3px solid #2e353d;
+  border-bottom: 1px solid #23282e;
+}
+.nav-side-menu li a {
+  text-decoration: none;
+  color: #e1ffff;
+}
+.nav-side-menu li a i {
+  padding-left: 10px;
+  width: 20px;
+  padding-right: 20px;
+}
+.nav-side-menu li:hover {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .nav-side-menu .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #ffffff;
+    color: #000;
+    width: 40px;
+    text-align: center;
+  }
+  .brand {
+    text-align: left !important;
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+}
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+a > li{
+  text-decoration: none;
+  color:white;
+}
+
+label.required:after {
+  content:"*";
+  color: red;
+  vertical-align: super;
+  font-size: smaller;
+  /*position: absolute;*/
+}
+
+.width_addOne .select2-drop {
+  width : 200% !important;
+}
+
+.width_addHalf .select2-drop {
+  width : 150% !important;
+}
+
+.width_addOneFourth .select2-drop {
+  width : 125% !important;
+}
+
+div.smallSelect2 a{
+  height : 30px !important;
+}
+
+/*
+  Alde's Dialogs
+*/
+
+ .puchase_order_dialog .ngdialog-content {
+     animation: ngdialog-flyin .5s;
+     background: transparent;
+     border-radius: 5px;
+     color: #444;
+     font-family: Helvetica, sans-serif;
+     font-size: 1.1em;
+     line-height: 1.5em;
+     margin: 0 auto;
+     max-width: 100%;
+     padding: 1em;
+     position: relative;
+     width: 90%;
+     padding-top: 50px;
+ }
+ 
+ .billing_receive_details .ngdialog-content {
+     animation: ngdialog-flyin .5s;
+     background: transparent;
+     border-radius: 5px;
+     color: #444;
+     font-family: Helvetica, sans-serif;
+     font-size: 1.1em;
+     line-height: 1.5em;
+     margin: 0 auto;
+     max-width: 100%;
+     padding: 1em;
+     position: relative;
+     width: 50%;
+     padding-top: 150px;
+ }
+
+ .billing_onpurchase .ngdialog-content {
+     animation: ngdialog-flyin .5s;
+     background: transparent;
+     border-radius: 5px;
+     color: #444;
+     font-family: Helvetica, sans-serif;
+     font-size: 1.1em;
+     line-height: 1.5em;
+     margin: 0 auto;
+     max-width: 100%;
+     padding: 1em;
+     position: relative;
+     width: 40%;
+     padding-top: 150px;
+ }
+
+
+ .dialogCreatePayment .ngdialog-content {
+      background: transparent;
+      margin: 0 auto;
+      position: relative;
+      width: 90%;
+      padding-top: 3%;
+      height: 100%;
+ }
+ 
+ .inventory .ngdialog-content {
+      animation: ngdialog-flyin .5s;
+      background: transparent;
+      border-radius: 5px;
+      color: #444;
+      font-family: Helvetica, sans-serif;
+      font-size: 1.1em;
+      line-height: 1.5em;
+      margin: 0 auto;
+      max-width: 100%;
+      padding: 1em;
+      position: relative;
+      width: 70%;
+      padding-top: 50px;
+  }
+
+  .price_level .ngdialog-content {
+      animation: ngdialog-flyin .5s !important;
+      background: transparent !important;
+      border-radius: 5px !important;
+      color: #444 !important;
+      font-family: Helvetica, sans-serif !important;
+      font-size: 1.1em !important;
+      line-height: 1.5em !important;
+      margin: 0 auto !important;
+      max-width: 100% !important;
+      padding: 1em !important;
+      position: relative !important;
+      width: 30% !important;
+  }
+  
+  .price_level {
+      padding-top: 300px !important;
+  }
+
+  .vendor .ngdialog-content {
+      animation: ngdialog-flyin .5s !important;
+      background: transparent !important;
+      border-radius: 5px !important;
+      color: #444 !important;
+      font-family: Helvetica, sans-serif !important;
+      font-size: 1.1em !important;
+      line-height: 1.5em !important;
+      margin: 0 auto !important;
+      max-width: 100% !important;
+      padding: 1em !important;
+      position: relative !important;
+      width: 170% !important;
+      padding-top: 150px !important;
+  }
+  
+.ui-select-multiple.ui-select-bootstrap{
+     height : 35px !important;
+}
+
+hr.bold {
+  border: 2 !important;
+  border-top: 5px solid @hr-border !important;
+}
+
+.border_1{
+  border:2px solid #4B546A; 
+}
+
+a.link_white{
+  
+}
+
+a.link_white{
+  color: white !important;
+}
+
+a.inherit{
+  color: inherit;
+}
+
+a.underline{
+  text-decoration: underline;
+}
+
+input.form-control.small_checkbox{
+  width : 10% !important;
+}
+
+
+input.form-control.small_form{
+  width : 20px !important;
+}
+
+
+.payment_type_account_types .ngdialog-content {
+     background: transparent;
+     margin: 0 auto;
+     position: relative;
+     width: 30%;
+     padding-top: 5%;
+     height : 80%;
+}
+
+.new_accounttype_dialog .ngdialog-content {
+     background: transparent;
+     margin: 0 auto;
+     position: relative;
+     width: 30%;
+     padding-top: 5%;
+     height : 80%;
+}
+
+.invoice_others_dialog .ngdialog-content {
+     background: transparent;
+     margin: 0 auto;
+     position: relative;
+     width: 30%;
+     padding-top: 10%;
+}
+
+.tpcl_dialog .ngdialog-content{
+  background: transparent;
+  margin: 0 auto;
+  position: relative;
+  width: 30%;
+  padding-top: 5%;
+}
+
+.default_center_codes .ngdialog-content{
+  background: transparent;
+  margin: 0 auto;
+  position: relative;
+  width: 23%;
+  padding-top: 5%;
+}
+
+.courier_form .ngdialog-content{
+  background: transparent;
+  margin: 0 auto;
+  position: relative;
+  width: 20%;
+  padding-top: 5%;
+}
+
+.spinner-dialog  {
+  padding-top: 250px;
+}
+
+.spinner-dialog  .ngdialog-content {
+  background: #f0f0f0;
+  border-radius: 5px;
+  color: #444;
+  font-family: Helvetica,sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  /*padding: 1em;*/
+  width: 20%;
+}
+
+.spinner-dialog  .ngdialog-close {
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 1px;
+}
+
+.spinner-dialog  .ngdialog-close:before{
+  background: 0 0;
+  border-radius: 3px;
+  color: #bbb;
+  content: '\00D7';
+  font-size: 26px;
+  font-weight: 400;
+  height: 30px;
+  line-height: 26px;
+  position: absolute;
+  right: 3px;
+  text-align: center;
+  top: 3px;
+}
+
+.transaction-status-dialog  {
+  padding-top: 250px;
+}
+
+.transaction-status-dialog  .ngdialog-content {
+  background: #f0f0f0;
+  border-radius: 5px;
+  color: #444;
+  font-family: Helvetica,sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  width: 70%;
+}
+
+.transaction-status-dialog  .ngdialog-close {
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 1px;
+}
+
+.transaction-status-dialog  .ngdialog-close:before{
+  background: 0 0;
+  border-radius: 3px;
+  color: #bbb;
+  content: '\00D7';
+  font-size: 26px;
+  font-weight: 400;
+  height: 30px;
+  line-height: 26px;
+  position: absolute;
+  right: 3px;
+  text-align: center;
+  top: 3px;
+}
+
+
+.gradient_button{
+  border:1px solid #4B546A;
+  background-color: #ffaf46; background-image: -webkit-gradient(linear, left top, left bottom, from(#ffaf46), to(#e78404));
+  background-image: -webkit-linear-gradient(top, #ffaf46, #e78404);
+  background-image: -moz-linear-gradient(top, #ffaf46, #e78404);
+  background-image: -ms-linear-gradient(top, #ffaf46, #e78404);
+  background-image: -o-linear-gradient(top, #ffaf46, #e78404);
+  background-image: linear-gradient(to bottom, #ffaf46, #e78404);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffaf46, endColorstr=#e78404);
+  border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+
+.gradient_button:hover{
+ border:1px solid #4B546A;
+ background-color: #ffaf46; background-image: -webkit-gradient(linear, left top, left bottom, from(#ffaf46), to(#e78404));
+ background-image: -webkit-linear-gradient(top, #ffaf46, #e78404);
+ background-image: -moz-linear-gradient(top, #ffaf46, #e78404);
+ background-image: -ms-linear-gradient(top, #ffaf46, #e78404);
+ background-image: -o-linear-gradient(top, #ffaf46, #e78404);
+ background-image: linear-gradient(to bottom, #ffaf46, #e78404);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffaf46, endColorstr=#e78404);
+}
+
+
+/*ANGULAR MATERIALLLLLLLLLLLLLLLLllll*/
+
+

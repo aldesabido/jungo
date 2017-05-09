@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<div ng-class="main.page_loader.dialog ? 'panel panel-primary clean sk-loading' : 'panel panel-primary clean'">
+    {% include "common/loader.html" %}
+    <div class="panel-heading">
+        <h3 class="panel-title">Documents</h3>
+        <a class="btn btn-lg pull-right margin_top_reverse_30 white white" ng-click="main.close_dialog()"><i class="fa fa-times fa-lg"></i></a>
+    </div>
+    <div class="panel-body">
+        <div class="col-sm-6">
+            <h4>Upload</h4>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn btn-primary btn-w-m pull-right" id="upload_now" ng-disabled="!main.file_added">Upload</button>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <div class="col-sm-12" style="max-height: 40%;overflow-y: auto;">
+            <form id="order_docs" name="name" upload_type="order_docs" class="dropzone"></form>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <div class="col-sm-12">
+            <hr class="divider">
+        </div>
+        <br>
+
+        <div class="col-sm-12">
+            <a class="btn btn-success btn-xs" href="/orders/docs_batch_download/{$ main.current_record.id $}/" target="_blank">Download all</a>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-3 container" ng-repeat="document in main.documents">
+                    <span class="pull-left">
+                        <a href="#" ng-disabled="true" ng-click="main.docs_remove(document)"><i class="fa fa-times fa-lg"></i></a>
+                    </span>
+                    <br>
+                    <div class="file-box">
+                        <div class="file">
+                            <a href="/orders/docs_download/{$ main.current_record.id $}/{$ document.id $}">
+                                <span class="corner"></span>
+
+                                <div class="icon">
+                                    <i class="fa fa-file"></i>
+                                </div>
+                                <div class="file-name">
+                                    {$ document.filename $}
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+            <div id="blueimp-gallery" class="blueimp-gallery">
+                <div class="slides"></div>
+                <h3 class="title"></h3>
+                <!-- The placeholder for the description label: -->
+                <p class="description"></p>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="close">×</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+            </div>
+        </div>
+    </div>
+</div>

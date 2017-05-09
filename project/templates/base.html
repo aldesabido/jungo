@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="wrapperCtrl as wrapper" ng-cloak="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title page-title>{% block title %}{$ wrapper.title $} - {{request.user.user_type.name}}{%endblock%}</title>
+    
+    {% include "css_loader.html" %}
+</head>
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+<body  landing-scrollspy id="page-top" class=" fixed-sidebar fixed-nav">
+    <div id="wrapper">
+        {% include "sidenav.html" %}
+        <div id="page-wrapper" class="page-wrapper gray-bg">
+            {% include "header.html" %}
+            <!-- Content Header -->
+            <!-- <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h5>> <u>{$ wrapper.title $}</u></h5>
+                </div>
+            </div> -->
+            
+            <!-- Content Body -->
+            <div ui-view></div>
+
+            <!-- Content Footer -->
+            <div class="footer fixed">
+                <div class="pull-right">
+                    <strong>Copyright</strong> MattBPO &copy; 2017-2018 
+                </div>
+            </div>
+        </div>
+    </div>
+    <toaster-container></toaster-container>
+    {% block content %}{% endblock %}    
+    {% include "footer.html" %}
+</body>
+</html>

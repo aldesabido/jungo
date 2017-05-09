@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<div ng-class="main.page_loader.dialog ? 'panel panel-primary clean sk-loading' : 'panel panel-primary clean'">
+    {% include "common/loader.html" %}
+    <div class="panel-heading">
+        <h3 class="panel-title">Photos</h3>
+        <a class="btn btn-lg pull-right margin_top_reverse_30 white" ng-click="main.close_dialog(false,true)"><i class="fa fa-times fa-lg"></i></a>
+    </div>
+    <div class="panel-body">
+        <div class="col-sm-6">
+            <h4>Upload Photos</h4>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn btn-primary btn-w-m pull-right" id="upload_now" ng-disabled="!main.file_added">Upload</button>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <div class="col-sm-12" style="max-height: 40%;overflow-y: auto;">
+            <form id="order_photos" name="name" upload_type="order_photos" class="dropzone"></form>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <div class="col-sm-12">
+            <hr class="divider">
+        </div>
+        <br>
+
+        <div class="col-sm-12">
+                <a class="btn btn-success btn-xs" href="/orders/photo_batch_download/{$ main.current_record.id $}/" target="_blank">Download all</a>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-3 container" ng-repeat="photo in main.photos">
+                    <span class="pull-left">
+                        <a href="/orders/photo_download/{$ main.current_record.id $}/{$ photo.id $}/"><i class="fa fa-download fa-lg"></i></a>
+                        <a href="#" ng-disabled="true" ng-click="main.photos_remove(photo)"><i class="fa fa-times fa-lg"></i></a>
+                    </span>
+                    <br>
+                    <a href="{% static 'uploads/'%}{$ photo.photo $}" title="{$ photo.filename $}" data-gallery="">
+                        <img class="img-thumbnail" src="{% static 'uploads/'%}{$ photo.photo_thumb $}">
+                    </a>
+                    <div class="caption">
+                        <h5>{$ photo.filename $}</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+            <div id="blueimp-gallery" class="blueimp-gallery">
+                <div class="slides"></div>
+                <h3 class="title"></h3>
+                <!-- The placeholder for the description label: -->
+                <p class="description"></p>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="close">×</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+            </div>
+        </div>
+    </div>
+</div>
