@@ -1,14 +1,15 @@
 from django.db import models
-from django.db.models import Count, Sum, Avg,Min,Q,F,Func
+from ..views.common import *
 
 
-class Order_type(models.Model):
-	name = models.CharField(max_length=200)
+class Instructor(models.Model):
+	code = models.TextField()
+	name = models.TextField()
 	is_deleted = models.BooleanField(default = False)
 
 	class Meta:
 		app_label = "project"
-		db_table  = "order_type"
+		db_table  = "instructors"
 
 	def delete(self):
 		# Validation here...
@@ -16,27 +17,17 @@ class Order_type(models.Model):
 		self.save()
 
 	def as_dict(self):
-		return {"id": self.pk,"name": self.name}
+		return {"id": self.pk,"code": self.code,"name": self.name}
 
-class Status(models.Model):
-	name = models.CharField(max_length=200)
+
+class Student(models.Model):
+	code = models.TextField()
+	name = models.TextField()
 	is_deleted = models.BooleanField(default = False)
 
 	class Meta:
 		app_label = "project"
-		db_table  = "status"
-
-	def as_dict(self):
-		return {"id": self.pk,"name": self.name}
-
-
-class Company(models.Model):
-	name = models.CharField(max_length=200)
-	is_deleted = models.BooleanField(default = False)
-
-	class Meta:
-		app_label = "project"
-		db_table  = "company"
+		db_table  = "student"
 
 	def delete(self):
 		# Validation here...
@@ -44,19 +35,16 @@ class Company(models.Model):
 		self.save()
 
 	def as_dict(self):
-		return {"id": self.pk,"name": self.name}
+		return {"id": self.pk,"code": self.code,"name": self.name}
 
-class Credential(models.Model):
-	user = models.ForeignKey("User")
-	username = models.CharField(max_length=200)
-	password = models.CharField(max_length=200)
-	company = models.ForeignKey("Company")
+
+class Subject(models.Model):
+	name = models.TextField()
 	is_deleted = models.BooleanField(default = False)
-	remarks = models.TextField(null = True,blank = True)
 
 	class Meta:
 		app_label = "project"
-		db_table  = "credential"
+		db_table  = "subject"
 
 	def delete(self):
 		# Validation here...
@@ -64,10 +52,6 @@ class Credential(models.Model):
 		self.save()
 
 	def as_dict(self):
-		return {
-			"id": self.pk,
-			"username": self.username,
-			"password": self.password,
-			"company": self.company.as_dict(),
-			"remarks": self.remarks,
-		}
+		return {"id": self.pk,"code": self.code,"name": self.name}
+
+

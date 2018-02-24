@@ -300,3 +300,4 @@ def filter_obj_to_q(obj,or_q = ()):
 			q_filters &= Q((value[0],value[1]))
 
 	return q_filters
+	
