@@ -1,0 +1,379 @@
+.hand_cursor{cursor: pointer;}
+.tr_gray:hover{background-color: #E8E8E8  !important;}
+.hand_cursor.gray:hover{background-color: #E8E8E8  ;}
+
+
+/*So that forms will work in firefox*/
+
+.form-control {
+    height: auto;
+}
+
+
+/* Button */
+
+.md_select_top_25 {
+    margin-top: -25px !important;
+}
+
+.md_select_top_15 {
+    margin-top: -15px !important;
+}
+
+.md_select_top_20 {
+    margin-top: -20px !important;
+}
+
+.md_select_top_10 {
+    margin-top: -10px !important;
+}
+
+.md_select_top_5 {
+    margin-top: -5px !important;
+}
+
+.md_select_top_1 {
+    margin-top: -1px !important;
+}
+
+.td_no_border_top {
+    border-top: none !important;
+}
+
+.smal_input_container {
+    margin: 0px;
+}
+
+div[type="button"]:hover {
+    cursor: pointer;
+}
+
+.selectdemoSelectHeader .demo-header-searchbox {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.selectdemoSelectHeader .demo-select-header {
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+    padding-left: 10.667px;
+    height: 35px !important;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+.selectdemoSelectHeader md-content._md {
+    max-height: 240px;
+}
+
+md-option {
+    height: 35px !important;
+}
+
+md-option ._md-text {
+    font-size: 14px !important;
+}
+
+button.clear_dropdown {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: absolute;
+    right: 15px;
+    top: -2px;
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 2px;
+    font-size: 0.9em;
+    background-color: #fff;
+    color: #646464;
+}
+
+.button > paper-ripple {
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.button.narrow {
+    width: 60px;
+}
+
+.button.grey {
+    background-color: #eee;
+}
+
+.button.blue {
+    background-color: #4285f4;
+    color: #fff;
+}
+
+.button.green {
+    background-color: #0f9d58;
+    color: #fff;
+}
+
+.button.green_sea {
+    background-color: #16a085;
+    color: #fff;
+}
+
+.button.red {
+    background-color: #d23f31;
+    color: #fff;
+}
+
+.button.yellow {
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+.button.raised {
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.button.raised:active {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    transition-delay: 0s;
+}
+
+.center {
+    text-align: center;
+}
+
+.button.small {
+    width: 50px;
+}
+
+.button.extrasmall {
+    width: 30px;
+}
+
+.lbl {
+    position: relative;
+    display: block;
+    height: 20px;
+    width: 44px;
+    background: #898989;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lbl:after {
+    position: absolute;
+    left: -2px;
+    top: -3px;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 100px;
+    background: #fff;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+    content: '';
+    transition: all 0.3s ease;
+}
+
+.lbl:active:after {
+    transform: scale(1.15, 0.85);
+}
+
+.cbx:checked ~ label {
+    background: #6fbeb5;
+}
+
+.cbx:checked ~ label:after {
+    left: 20px;
+    background: #179588;
+}
+
+.cbx:disabled ~ label {
+    background: #d5d5d5;
+    pointer-events: none;
+}
+
+.cbx:disabled ~ label:after {
+    background: #bcbdbc;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+div.hover:hover {
+    cursor: pointer;
+}
+
+.common_filter .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 45%;
+    height: 100%;
+}
+
+.subsidiary_dialog .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    padding-top: 5%;
+    position: relative;
+    width: 45%;
+    height: 80%;
+}
+
+.more_details_dialog .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 55%;
+    padding-top: 3%;
+    height: 95%;
+}
+
+.common_import_dialog .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 50%;
+    padding-top: 3%;
+    height: 95%;
+}
+
+.attachment_dialog .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 35%;
+    padding-top: 3%;
+    height: 95%;
+}
+
+.panel_dialog_main {
+    height: 100%;
+    overflow: hidden;
+}
+
+.panel_dialog_main .panel-body {
+    height: 80%;
+    overflow: auto;
+}
+
+.item_class_dialog .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 25%;
+    padding-top: 30px;
+}
+
+.common_small_dialog .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 40%;
+    padding-top: 3%;
+    height: 60%;
+}
+
+.common_dialog_50 .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 50%;
+    padding-top: 3%;
+    height: 95%;
+}
+
+.common_dialog_60 .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 60%;
+    padding-top: 3%;
+    height: 95%;
+}
+
+.common_dialog_70 .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 70%;
+    padding-top: 3%;
+    height: 95%;
+}
+
+.common_dialog_80 .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    width: 80%;
+    padding-top: 3%;
+    height: 95%;
+}
+
+.common.panel {
+    height: 95%;
+    overflow: hidden;
+}
+
+.common.panel .panel-body {
+    height: 80%;
+    overflow-x: hidden;
+    overflow: auto;
+}
+
+.common.panel .panel-footer {
+    height: 10%;
+    overflow: hidden;
+}
+
+.transaction_panel {
+    position: relative;
+    min-height: 100%;
+}
+
+.transaction_panel .panel-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.transdialog .panel-body {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.whole_dialog .ngdialog-content {
+    background: transparent;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+    width: 99%;
+}
+
+.ngdialog-overlay {
+    position: absolute;
+}
+
+.whole_dialog .ngdialog-content .panel {
+    min-height: 100%;
+    margin-top: : -3%;
+    width: 100%;
+    overflow-y: hidden;
+    margin-left: : -13%;
+}
