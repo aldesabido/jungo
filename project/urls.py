@@ -9,6 +9,7 @@ from project.views import (
 	)
 urlpatterns = [
 	url(r'^$', common_requests.firstpage, name='firstpage'),
+	url(r'^logout/', common_requests.logout, name='logout'),
 ]
 urlpatterns += static(root_settings.STATIC_URL,document_root=root_settings.STATIC_ROOT)
 urlpatterns += static(root_settings.MEDIA_URL,document_root=root_settings.MEDIA_ROOT)

@@ -1,24 +1,27 @@
 from django.db import models
 from django.contrib.auth import hashers
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.contrib.postgres.fields import JSONField,ArrayField
 
 
 class User_Manager(BaseUserManager):
 	
 	def create_user(self, email, password):
-		password = hashers.make_password(self.password)
+		print(password)
+		password = hashers.make_password(password)
+		print(password)
 		user = self.model(email = email, password = password)
 		return user
 
 	def create_superuser(self, email, password):
 		user = self.create_user(email = email, password = password)
-		user.is_staff = False
+		# user.is_staff = False
 		user.is_superuser = True
+		user.is_supersuperuser = True
 		user.save()
 		return user
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser,PermissionsMixin):
 	email = models.EmailField(max_length = 254, null = False, blank = False, unique = True)
 	fullname = models.CharField(max_length = 50, null = False, blank = False)
 	address = models.TextField(null = True,blank = True)
@@ -28,7 +31,7 @@ class User(AbstractBaseUser):
 	created_on = models.DateTimeField(auto_now_add = True)
 	edited_on = models.DateTimeField(auto_now = True)
 	is_staff = models.BooleanField(default = True)
-	is_superuser = models.BooleanField(default = False)
+	is_supersuperuser = models.BooleanField(default = False)
 	deleted = models.BooleanField(default = False)
 	USERNAME_FIELD = 'email'
 	objects = User_Manager()
@@ -67,9 +70,9 @@ class User(AbstractBaseUser):
 		return self.fullname
 
 	def get_short_name(self):
-		substrings = this.get_full_name().split(' ')
-		if substring[0]:
-			return substring[0]
+		substrings = self.get_full_name().split(' ')
+		if substrings[0]:
+			return substrings[0]
 		else:
 			return ""
 
