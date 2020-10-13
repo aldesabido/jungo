@@ -1,8 +1,5 @@
-#sudo apt-get install postgresql postgresql-contrib libpq-dev python-dev
-django==1.9
-psycopg2==2.6.2
-pillow==3.4.2
-django-imagekit
-
-#Run this in Python 2.7
-#mkvirtualenv -p /usr/bin/python2.7 <ENV_NAME>
+django==2.2
+psycopg2==2.7.5
+django-mail_templated
+xlsxwriter
+djangorestframework

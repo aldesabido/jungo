@@ -1,5 +1,5 @@
 
-from django.conf.urls import url, handler404,patterns,include
+from django.conf.urls import url, handler404,include
 from django.conf import settings as root_settings
 from django.conf.urls.static import static
 
